@@ -4,3 +4,7 @@ I personnaly use 12 wallpaper located in the same folder and named from 1.jpg to
 
 usage:
 ./atbwc.py path/to/wallpaper/folder
+
+**TODO:
+
+Allow the usage of a custom number of wallpapers !
