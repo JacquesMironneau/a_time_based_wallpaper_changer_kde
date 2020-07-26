@@ -6,7 +6,6 @@
 
 import subprocess
 import datetime
-import time
 import sys
 
 
@@ -43,29 +42,7 @@ def resolve_file_with_hour(file_number):
     return file
 
 
-def usage():
-    print("./atbwc.py /path/to/wallpaper/folder")
-    print("[Warning] the wallpaper must be named from 1.jpg to 12.jpg")
-
-
 # Every time the hour change (check with prev which stands for the last hour)
 # The wallpaper is changed with the previous functions
 if __name__ == "__main__":
-
-    if len(sys.argv) != 2:
-        usage()
-        exit(0)
-
-    # Handle path ending by '/' or without it
-    wallpaper_path = sys.argv[1] if sys.argv[1].endswith(
-        '/') else sys.argv[1]+'/'
-
-    print("Enjoy the Awesome Time Based Wallpaper Changer ! :D ")
-    prev = 0
-    while 1:
-        current_hour = datetime.datetime.now().time().hour
-        if current_hour != prev:
-            prev = current_hour
-            subprocess.run(change_paper_command(
-                resolve_file_with_hour(get_hour())))
-        time.sleep(300)
+    subprocess.run(change_paper_command(resolve_file_with_hour(get_hour())))
